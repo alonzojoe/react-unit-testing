@@ -2,9 +2,15 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import jestLogo from "./assets/jest-logo.png";
 import "./App.css";
+import UserForm from "./components/UserForm";
+import UserList from "./components/UserList";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [users, setUsers] = useState([]);
+
+  const handleSave = (data) => {
+    setUsers((prev) => [...prev, data]);
+  };
 
   return (
     <>
@@ -18,16 +24,10 @@ function App() {
       </div>
       <h2>Jest x React</h2>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <UserForm onSubmit={handleSave} />
+        <UserList users={users} />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <p className="read-the-docs">React Unit Testing</p>
     </>
   );
 }
