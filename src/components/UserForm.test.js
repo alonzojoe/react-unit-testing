@@ -11,7 +11,7 @@ test("it shows two inputs and a button", () => {
   const button = screen.getByRole("button");
 
   //assertion - make sure component doing
-  expect(input).toHaveLength(2)
-  expect(button).toBeInTheDocument()
+  expect(input).toHaveLength(2);
+  expect(button).toBeInTheDocument();
   //what we expect to do
 });
