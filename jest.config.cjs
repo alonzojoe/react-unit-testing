@@ -4,5 +4,8 @@ module.exports = {
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
   },
-  moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
+  moduleNameMapper: {
+    "^@/(.*)$": "<rootDir>/src/$1", // If using path aliases
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+  },
 };
